@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>СТО — Учёт клиентов</title>
+</head>
+<body>
+    <h2>Добавить клиента</h2>
+    <form action="/add" method="post">
+        Имя: <input type="text" name="name"><br>
+        Телефон: <input type="text" name="phone"><br>
+        Марка авто: <input type="text" name="car"><br>
+        Что починили: <input type="text" name="service"><br>
+        Запчасть: <input type="text" name="part"><br>
+        Дата: <input type="date" name="date"><br>
+        Комментарий: <input type="text" name="comment"><br>
+        <input type="submit" value="Сохранить">
+    </form>
+    <hr>
+    <h2>История ремонтов</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>Имя</th><th>Телефон</th><th>Авто</th><th>Услуга</th>
+            <th>Запчасть</th><th>Дата</th><th>Комментарий</th>
+        </tr>
+        {% for c in clients %}
+        <tr>
+            <td>{{ c[0] }}</td><td>{{ c[1] }}</td><td>{{ c[2] }}</td><td>{{ c[3] }}</td>
+            <td>{{ c[4] }}</td><td>{{ c[5] }}</td><td>{{ c[6] }}</td><td>{{ c[7] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
